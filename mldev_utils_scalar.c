@@ -184,7 +184,7 @@ __float16_to_float32_scalar_rtx(uint16_t f16)
 		if (f16_m == 0) { /* zero signed */
 			f32_e = 0;
 		} else { /* subnormal numbers */
-			/* clz alwys >0, since there are at least 22 leading 0 bits in f16_m, 22 - 32 + 10 = 0*/
+			/* clz always >0, since there are at least 22 leading 0 bits in f16_m, 22 - 32 + 10 = 0*/
 			/* so, when MSB of f16 mantissa is 1, clz = 0, when the second least MSB bit of 16 mantissa is 1,
 			 * clz = 1 */
 			clz = __builtin_clz((uint32_t)f16_m) - sizeof(uint32_t) * 8 + FP16_LSB_E;

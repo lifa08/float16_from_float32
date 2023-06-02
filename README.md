@@ -2,7 +2,7 @@
 
 This repo is personal study note on converting float32 to float16 based on article [
 The many ways of converting FP32 to FP16](https://www.corsix.org/content/converting-fp32-to-fp16).
-The functions from the aticle is explained in detail and is in different files.
+The functions from the aticle are explained in detail and stored in different files.
 
 ## IEEE 754 single-precision 32-bit binary float
 
@@ -57,8 +57,6 @@ The mapping should be:
 
 So if the value of float32 is inifnity or 0, it is easy, just map to float16 bit values accordingly.
 
-This repo mainly aims at explaining in detail the code in [many ways of converting FP32 to FP16](https://www.corsix.org/content/converting-fp32-to-fp16).
-
 ### Float32 normal to float16 subnormal
 
 The normal value of float32 in range [2<sup>-24</sup>, 2<sup>-14</sup>) is mapped to subnormal value of float16.
@@ -112,7 +110,7 @@ When converting from float32 to float16, we need to do:
 1. Compute biased exponent for float16
 2. Right shift mantissa bits 13 bits, thus dropping mantissa bits from m<sub>0</sub> to m<sub>12</sub> and round if needed.
 
-Note that, in this case, the number of bits to be right shifted is fixed at 13 bits which is different in case Float32 normal to float16 subnormal.
+Note that, in this case, the number of bits to be right shifted is fixed at 13 which is different in case Float32 normal to float16 subnormal.
 
 ### Optmization tricks
 
